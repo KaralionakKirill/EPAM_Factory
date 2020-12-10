@@ -8,6 +8,19 @@ import java.util.List;
 
 public class EllipseAction implements ShapeAction<Ellipse> {
 
+    public boolean isCrossOneAxis(List<Point> pointList){
+        Point firstPoint = pointList.get(0);
+        Point secondPoint = pointList.get(1);
+        short count = 0;
+        if(firstPoint.getX() * secondPoint.getX() < 0){
+            count++;
+        }
+        if(firstPoint.getY()*secondPoint.getY() < 0){
+            count++;
+        }
+        return (count == 1);
+    }
+
     public boolean isCorrectPoints(List<Point> pointList){
         Point firstPoint = pointList.get(0);
         Point secondPoint = pointList.get(1);

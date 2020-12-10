@@ -1,8 +1,7 @@
 package com.epam.student.exception;
 
 public class ShapeException extends Exception{
-    public ShapeException() {
-    }
+    public ShapeException() {}
 
     public ShapeException(String message) {
         super(message);

@@ -1,7 +1,10 @@
 package com.epam.student.parser;
 
-import com.epam.student.entity.Shape;
+import com.epam.student.entity.Point;
+import com.epam.student.exception.ParserException;
 
-public interface ShapeParser<T extends Shape> {
-    T parsingLine(String line);
+import java.util.List;
+
+public interface ShapeParser{
+    List<Point> parsingLine(String line) throws ParserException;
 }
