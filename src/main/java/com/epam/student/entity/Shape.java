@@ -11,6 +11,7 @@ public abstract class Shape {
     public Shape(Point... points){
         pointList = Arrays.asList(points);
     }
+
     public List<Point> getPointList() {
         return new ArrayList<>(pointList);
     }

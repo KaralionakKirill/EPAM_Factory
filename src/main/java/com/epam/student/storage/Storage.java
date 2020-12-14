@@ -1,19 +1,10 @@
 package com.epam.student.storage;
 
-import com.epam.student.entity.Shape;
+import com.epam.student.entity.ShapeData;
 
-import java.util.List;
+public interface Storage<T extends ShapeData> {
+    boolean remove(T o, String key);
 
-public interface Storage <T extends Shape>{
-    List<T> getList();
+    T put(T o, String key);
 
-    T get(int index);
-
-    boolean add(T o);
-
-    boolean remove(T o);
-
-    boolean contains(T o);
-
-    int size();
 }

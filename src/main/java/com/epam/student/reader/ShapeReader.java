@@ -18,7 +18,7 @@ public class ShapeReader {
     private ShapeReader() {
     }
 
-    public ShapeReader getInstance() {
+    public static ShapeReader getInstance() {
         if (instance == null) {
             instance = new ShapeReader();
         }

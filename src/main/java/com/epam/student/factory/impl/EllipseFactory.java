@@ -2,9 +2,9 @@ package com.epam.student.factory.impl;
 
 import com.epam.student.entity.Point;
 import com.epam.student.entity.impl.Ellipse;
-import com.epam.student.factory.ShapeFactory;
+import com.epam.student.factory.EntityFactory;
 
-public class EllipseFactory implements ShapeFactory<Ellipse> {
+public class EllipseFactory implements EntityFactory<Ellipse> {
     private static EllipseFactory instance;
 
     private EllipseFactory(){}

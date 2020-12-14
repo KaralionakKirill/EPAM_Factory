@@ -7,24 +7,35 @@ import com.epam.student.entity.impl.Ellipse;
 import java.util.List;
 
 public class EllipseAction implements ShapeAction<Ellipse> {
+    private static EllipseAction instance;
 
-    public boolean isCrossOneAxis(List<Point> pointList){
+    private EllipseAction() {
+    }
+
+    public static EllipseAction getInstance() {
+        if (instance == null) {
+            instance = new EllipseAction();
+        }
+        return instance;
+    }
+
+    public boolean isCrossOneAxis(List<Point> pointList) {
         Point firstPoint = pointList.get(0);
         Point secondPoint = pointList.get(1);
         short count = 0;
-        if(firstPoint.getX() * secondPoint.getX() < 0){
+        if (firstPoint.getX() * secondPoint.getX() < 0) {
             count++;
         }
-        if(firstPoint.getY()*secondPoint.getY() < 0){
+        if (firstPoint.getY() * secondPoint.getY() < 0) {
             count++;
         }
         return (count == 1);
     }
 
-    public boolean isCorrectPoints(List<Point> pointList){
+    public boolean isCorrectPoints(List<Point> pointList) {
         Point firstPoint = pointList.get(0);
         Point secondPoint = pointList.get(1);
-        return ((firstPoint.getY() != secondPoint.getY()) && (firstPoint.getX() != secondPoint.getX()));
+        return (firstPoint.equals(secondPoint));
     }
 
     public boolean isEllipse(Ellipse shape) {
@@ -45,7 +56,7 @@ public class EllipseAction implements ShapeAction<Ellipse> {
     }
 
     @Override
-    public double perimeterSquare(Ellipse shape) {
+    public double shapePerimeter(Ellipse shape) {
         double res = Math.PI * majorAxis(shape.getPointList()) * minorAxis(shape.getPointList());
         res += (majorAxis(shape.getPointList()) - minorAxis(shape.getPointList()));
         res *= 4;

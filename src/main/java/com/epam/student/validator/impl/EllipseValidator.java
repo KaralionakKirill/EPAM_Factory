@@ -1,10 +1,11 @@
 package com.epam.student.validator.impl;
 
+import com.epam.student.entity.Point;
 import com.epam.student.validator.ShapeValidator;
 
 public class EllipseValidator implements ShapeValidator {
-    private static EllipseValidator instance;
     private static final String POINT_REGEX = "-?\\d+.\\d+";
+    private static EllipseValidator instance;
 
     private EllipseValidator() {
     }
@@ -19,5 +20,10 @@ public class EllipseValidator implements ShapeValidator {
     @Override
     public boolean isValidLine(String... lines) {
         return (lines[0].matches(POINT_REGEX) && lines[1].matches(POINT_REGEX) && lines.length == 2);
+    }
+
+    @Override
+    public boolean isNotSamePoints(Point... points) {
+        return (!(points[0].equals(points[1])));
     }
 }

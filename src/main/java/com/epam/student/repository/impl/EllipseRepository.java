@@ -1,12 +1,16 @@
-package com.epam.student.storage.impl;
+package com.epam.student.repository.impl;
 
+import com.epam.student.entity.Shape;
 import com.epam.student.entity.impl.Ellipse;
-import com.epam.student.storage.Storage;
+import com.epam.student.repository.Repository;
+import com.epam.student.specification.Specification;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public enum EllipseStorage implements Storage<Ellipse> {
+public enum EllipseRepository implements Repository<Ellipse> {
     INSTANCE;
 
     private final List<Ellipse> ellipseList = new ArrayList<>();
@@ -34,6 +38,19 @@ public enum EllipseStorage implements Storage<Ellipse> {
     @Override
     public boolean contains(Ellipse o) {
         return ellipseList.contains(o);
+    }
+
+    @Override
+    public List<Ellipse> sort(Comparator<? super Shape> comparator) {
+        List<Ellipse> list = new ArrayList<>(ellipseList);
+        list.sort(comparator);
+        return list;
+    }
+
+    @Override
+    public List<Ellipse> query(Specification<Ellipse> specification) {
+        List<Ellipse> list = ellipseList.stream().filter(o -> specification.specify(o)).collect(Collectors.toList());
+        return list;
     }
 
     @Override
