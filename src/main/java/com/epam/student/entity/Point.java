@@ -38,12 +38,16 @@ public class Point {
 
     @Override
     public int hashCode() {
-        return (int)(getX() * getY());
+        int result = 31 * Double.hashCode(getX());
+        result += 31 * Double.hashCode(getY());
+        result -= (Double.hashCode(getY()) - Double.hashCode(getX()));
+        result *= Double.hashCode(getY());
+        return result;
     }
 
     @Override
     public String toString() {
-        StringBuilder str  = new StringBuilder("Point{");
+        StringBuilder str = new StringBuilder("Point{");
         str.append("x=").append(x).append(", ");
         str.append("y=").append(y).append("}");
         return str.toString();

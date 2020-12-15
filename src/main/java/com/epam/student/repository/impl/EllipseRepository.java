@@ -1,7 +1,7 @@
 package com.epam.student.repository.impl;
 
 import com.epam.student.entity.Shape;
-import com.epam.student.entity.impl.Ellipse;
+import com.epam.student.entity.Ellipse;
 import com.epam.student.repository.Repository;
 import com.epam.student.specification.Specification;
 
@@ -49,8 +49,7 @@ public enum EllipseRepository implements Repository<Ellipse> {
 
     @Override
     public List<Ellipse> query(Specification<Ellipse> specification) {
-        List<Ellipse> list = ellipseList.stream().filter(o -> specification.specify(o)).collect(Collectors.toList());
-        return list;
+        return ellipseList.stream().filter(specification::specify).collect(Collectors.toList());
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.epam.student.specification.impl;
 
-import com.epam.student.entity.impl.Ellipse;
+import com.epam.student.entity.Ellipse;
 import com.epam.student.specification.Specification;
 
 public class NameSpecification implements Specification<Ellipse> {

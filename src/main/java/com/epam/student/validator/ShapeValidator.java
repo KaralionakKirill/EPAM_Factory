@@ -1,9 +1,9 @@
 package com.epam.student.validator;
 
-import com.epam.student.entity.Point;
+import com.epam.student.entity.Shape;
 
-public interface ShapeValidator {
+public interface ShapeValidator<T extends Shape> {
     boolean isValidLine(String... line);
 
-    boolean isNotSamePoints(Point... points);
+    boolean isNotSamePoints(T o);
 }

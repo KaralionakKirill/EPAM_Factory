@@ -2,20 +2,17 @@ package com.epam.student.action.impl;
 
 import com.epam.student.action.ShapeAction;
 import com.epam.student.entity.Point;
-import com.epam.student.entity.impl.Ellipse;
+import com.epam.student.entity.Ellipse;
 
 import java.util.List;
 
 public class EllipseAction implements ShapeAction<Ellipse> {
-    private static EllipseAction instance;
+    private static final EllipseAction instance = new EllipseAction();
 
     private EllipseAction() {
     }
 
     public static EllipseAction getInstance() {
-        if (instance == null) {
-            instance = new EllipseAction();
-        }
         return instance;
     }
 
