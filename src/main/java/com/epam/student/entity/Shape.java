@@ -1,16 +1,14 @@
 package com.epam.student.entity;
 
+import java.util.UUID;
+
 public abstract class Shape {
-    private String name;
+    private final String name = UUID.randomUUID().toString();
 
     public Shape() {
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

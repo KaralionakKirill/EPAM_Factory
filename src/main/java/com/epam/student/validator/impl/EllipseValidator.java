@@ -1,10 +1,9 @@
 package com.epam.student.validator.impl;
 
-import com.epam.student.entity.Ellipse;
 import com.epam.student.entity.Point;
 import com.epam.student.validator.ShapeValidator;
 
-public class EllipseValidator implements ShapeValidator<Ellipse> {
+public class EllipseValidator implements ShapeValidator {
     private static final String POINT_REGEX = "-?\\d+.\\d+";
     private static final EllipseValidator instance = new EllipseValidator();
 
@@ -21,9 +20,7 @@ public class EllipseValidator implements ShapeValidator<Ellipse> {
     }
 
     @Override
-    public boolean isNotSamePoints(Ellipse ellipse) {
-        Point firstPoint = ellipse.getPointList().get(0);
-        Point secondPoint = ellipse.getPointList().get(1);
-        return (!(firstPoint.equals(secondPoint)));
+    public boolean isNotSamePoints(Point... points) {
+        return (!(points[0].equals(points[1])));
     }
 }

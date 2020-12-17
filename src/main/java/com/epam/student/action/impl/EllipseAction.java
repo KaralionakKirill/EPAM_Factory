@@ -29,12 +29,6 @@ public class EllipseAction implements ShapeAction<Ellipse> {
         return (count == 1);
     }
 
-    public boolean isCorrectPoints(List<Point> pointList) {
-        Point firstPoint = pointList.get(0);
-        Point secondPoint = pointList.get(1);
-        return (firstPoint.equals(secondPoint));
-    }
-
     public boolean isEllipse(Ellipse shape) {
         return (majorAxis(shape.getPointList()) != minorAxis(shape.getPointList()));
     }

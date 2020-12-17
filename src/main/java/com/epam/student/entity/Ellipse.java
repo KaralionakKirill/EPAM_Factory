@@ -13,7 +13,7 @@ public class Ellipse extends Shape implements Observable<EllipseObserver> {
     private List<Point> pointList;
     private Observer<Ellipse> observer;
 
-    public Ellipse(Point... points){
+    public Ellipse(Point... points) {
         pointList = Arrays.asList(points);
     }
 
@@ -39,11 +39,19 @@ public class Ellipse extends Shape implements Observable<EllipseObserver> {
     @Override
     public void notifyObserver() {
         EllipseValidator validator = EllipseValidator.getInstance();
-        if(observer != null && pointList.size() != 0){
-            if(validator.isNotSamePoints(this)) {
+        if (observer != null && pointList.size() != 0) {
+            if (validator.isNotSamePoints(pointList.get(0), pointList.get(1))) {
                 observer.update(this);
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder("Ellipse{");
+        str.append("name=").append(getName()).append(", ");
+        str.append("pointList=").append(pointList).append("}");
+        return str.toString();
     }
 
     @Override
